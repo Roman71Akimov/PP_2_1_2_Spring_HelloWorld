@@ -8,5 +8,12 @@ public class App {
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
         System.out.println(bean.getMessage());
+        HelloWorld bean2 =
+                (HelloWorld) applicationContext.getBean("helloworld");
+        System.out.println("Ссылки на объекты равны?" + (bean == bean2));
+
+        Cat catBean = applicationContext.getBean("helloKitty", Cat.class);
+        Cat catBean2 = applicationContext.getBean("helloKitty", Cat.class);
+        System.out.println("Ссылки на объекты равны?" + (catBean == catBean2));
     }
 }
